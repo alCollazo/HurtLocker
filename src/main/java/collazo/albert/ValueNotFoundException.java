@@ -1,8 +1,5 @@
 package collazo.albert;
 
-/**
- * Created by albertcollazo on 2/11/17.
- */
 public class ValueNotFoundException extends Exception {
 
     public static int counter = 0;

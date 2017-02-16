@@ -20,13 +20,12 @@ public class JerksonDataParcer {
         return keyAndValue;
     }
 
-   public void parseInput(String input){
+    public void addKeyAndValueToMap(String input){
         String[] itemsArray = splitItemByHash(input);
         for(int i = 0; i < itemsArray.length; i++){
             String[] item = separateKeyAndValue(itemsArray[i]);
             addItemToMap(item[0], item[1]);
         }
-
     }
 
     public String spellCheck(String itemName){
@@ -43,7 +42,6 @@ public class JerksonDataParcer {
         return name;
     }
 
-
     public String checkForNullValue(String value) throws ValueNotFoundException{
         Pattern pattern = Pattern.compile("[^:]*$");
         Matcher hasValue = pattern.matcher(value);
@@ -56,19 +54,11 @@ public class JerksonDataParcer {
         return hasValue.group();
     }
 
-    public void addPriceToGroceryItem(String name, String price){
-
-        if(price != null && name != null ){
-            if(listOfItems.get(name).checkIfPriceExists(price))
-                listOfItems.get(name).incrementCount(price);
-            else
-                listOfItems.get(name).addPrice(price);
-        }
+    public boolean checkMapForItem(String name){
+        return listOfItems.containsKey(name);
     }
 
-
-
- public void addItemToMap(String item, String itemPrice){
+    public void addItemToMap(String item, String itemPrice){
         Map<String, Integer> priceAndNumberOfOccurrences = new HashMap<>();
         String name;
         String price = null;
@@ -89,8 +79,14 @@ public class JerksonDataParcer {
         addPriceToGroceryItem(name,price);
     }
 
-    public boolean checkMapForItem(String name){
-        return listOfItems.containsKey(name);
+    public void addPriceToGroceryItem(String name, String price){
+
+        if(price != null && name != null ){
+            if(listOfItems.get(name).checkIfPriceExists(price))
+                listOfItems.get(name).incrementCount(price);
+            else
+                listOfItems.get(name).addPrice(price);
+        }
     }
 
     public void error(){

@@ -14,7 +14,7 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         JerksonDataParcer jerksonDataParcer = new JerksonDataParcer();
 
-        jerksonDataParcer.parseInput(output);
+        jerksonDataParcer.addKeyAndValueToMap(output);
         jerksonDataParcer.printMap();
         jerksonDataParcer.error();
 

@@ -47,3 +47,7 @@ I also expect you to report on how many exceptions you saw while parsing the dat
 
 GOOD LUCK ZIPCODERS!!!! My the Odds be ever in your favor!!!!
 
+
+CREATE TABLE people (first_name varchar(50) not null default "",last_name varchar(50) not null default "",mobile_phone_# varchar(20) not null default "",birthday date not null default ‘1000-01-01’,home_id small int unsigned default NULL,PRIMARY KEY(first_name, last_name, birthday));
+
+

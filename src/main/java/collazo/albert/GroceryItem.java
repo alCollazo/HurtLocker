@@ -2,10 +2,8 @@ package collazo.albert;
 
 import java.util.Map;
 
-/**
- * Created by albertcollazo on 2/8/17.
- */
 public class GroceryItem {
+
     String name;
     public int numberOfItemOccurrences;
     public Map<String, Integer>priceAndNumberOfOccurrences;
@@ -24,16 +22,16 @@ public class GroceryItem {
                 '}';
     }
 
-    public void addPrice(String price){
-        priceAndNumberOfOccurrences.put(price, 1);
-        numberOfItemOccurrences++;
-    }
-
     public boolean checkIfPriceExists(String price){
         if(priceAndNumberOfOccurrences.containsKey(price))
             return true;
         else
             return false;
+    }
+
+    public void addPrice(String price){
+        priceAndNumberOfOccurrences.put(price, 1);
+        numberOfItemOccurrences++;
     }
 
     public void incrementCount(String price){
@@ -53,5 +51,4 @@ public class GroceryItem {
         }
         return stringBuilder.toString();
     }
-
 }

@@ -1,12 +1,9 @@
 package collazo.albert;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -60,7 +57,6 @@ public class JerksonDataParcerTest {
         String actual = null;
         try{
             actual = jerksonDataParcer.checkForNullValue("naMe:");
-
         }catch(ValueNotFoundException e){
             assertTrue(e.getMessage().equals("Value not found"));
         }
@@ -73,7 +69,4 @@ public class JerksonDataParcerTest {
         boolean actual = jerksonDataParcer.checkMapForItem("bread");
         assertEquals(expected, actual);
     }
-
-
-
 }
